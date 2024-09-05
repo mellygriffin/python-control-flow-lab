@@ -167,4 +167,56 @@
 # weather_advice()
 
 
+# Exercise 5: What's the Season?
+#
+# Write a Python function named `determine_season` that figures out the season based on the entered date.
+#
+# Requirements:
+# - The function should first prompt the user to enter the month (as three characters): "Enter the month of the year (Jan - Dec):"
+# - Then, the function should prompt the user to enter the day of the month: "Enter the day of the month:"
+# - Determine the current season based on the date:
+#      - Dec 21 - Mar 19: Winter
+#      - Mar 20 - Jun 20: Spring
+#      - Jun 21 - Sep 21: Summer
+#      - Sep 22 - Dec 20: Fall
+# - Print the season for the entered date in the format: "<Mmm> <dd> is in <season>."
+#
+# Hints:
+# - Use 'in' to check if a string is in a list or tuple.
+# - Adjust the season based on the day of the month when needed.
+# - Ensure to validate input formats and handle unexpected inputs gracefully.
+
+def determine_season():
+    months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+    mon = input("Enter the current month: ")
+    if mon not in months:
+        print("Invalid month, please type a month.")
+    else: 
+        mon = mon[0:3]
+
+    day = input("Enter the current day: ")
+    day = int(day)
+    # if day != range(1,31):
+    #     print("Invalid day, please type a number between 1 and 31.")
+    # elif day != int(day):
+    #     print("Invalid input, please type a number.")
+
+
+    season = ""
+    if (mon == "Dec" and day in range(21,30)) or (mon == "Jan" and day in range(1,31)) or (mon == "Feb" and day in range(1,28)) or (mon == "Mar" and day in (1,19)):
+        season = "Winter"
+    elif (mon == "Mar" and day in range(20,31)) or (mon == "Apr" and day in range(1,30)) or (mon == "May" and day in range(1,31)) or (mon == "Jun" and day in range(1,20)):
+        season = "Spring"
+    elif (mon == "Jun" and day in range(21,30)) or (mon == "Jul" and day in range(1,31)) or (mon == "Aug" and day in range(1,30)) or (mon == "Sep" and day in range(1,21)):
+        season = "Summer"
+    elif (mon == "Sep" and day in range(22,31)) or (mon == "Oct" and day in range(1,31)) or (mon == "Nov" and day in range(1,30)) or (mon == "Dec" and day in range(1,20)):
+        season = "Fall"
+    else:
+        print("Error: Cannot determine season.")
+
+    
+    print(f"{mon} {day} is in {season}.")
+
+# Call the function
+determine_season()
 
