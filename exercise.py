@@ -186,37 +186,87 @@
 # - Adjust the season based on the day of the month when needed.
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
 
-def determine_season():
-    months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
-    mon = input("Enter the current month: ")
-    if mon not in months:
-        print("Invalid month, please type a month.")
-    else: 
-        mon = mon[0:3]
+# def determine_season():
+#     months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+#     mon = input("Enter the current month: ")
+#     if mon not in months:
+#         print("Invalid month, please type a month.")
+#     else: 
+#         mon = mon[0:3]
 
-    day = input("Enter the current day: ")
-    day = int(day)
-    # if day != range(1,31):
-    #     print("Invalid day, please type a number between 1 and 31.")
-    # elif day != int(day):
-    #     print("Invalid input, please type a number.")
+#     day = input("Enter the current day: ")
+#     day = int(day)
+#     # if day != range(1,31):
+#     #     print("Invalid day, please type a number between 1 and 31.")
+#     # elif day != int(day):
+#     #     print("Invalid input, please type a number.")
 
 
-    season = ""
-    if (mon == "Dec" and day in range(21,30)) or (mon == "Jan" and day in range(1,31)) or (mon == "Feb" and day in range(1,28)) or (mon == "Mar" and day in (1,19)):
-        season = "Winter"
-    elif (mon == "Mar" and day in range(20,31)) or (mon == "Apr" and day in range(1,30)) or (mon == "May" and day in range(1,31)) or (mon == "Jun" and day in range(1,20)):
-        season = "Spring"
-    elif (mon == "Jun" and day in range(21,30)) or (mon == "Jul" and day in range(1,31)) or (mon == "Aug" and day in range(1,30)) or (mon == "Sep" and day in range(1,21)):
-        season = "Summer"
-    elif (mon == "Sep" and day in range(22,31)) or (mon == "Oct" and day in range(1,31)) or (mon == "Nov" and day in range(1,30)) or (mon == "Dec" and day in range(1,20)):
-        season = "Fall"
-    else:
-        print("Error: Cannot determine season.")
+#     season = ""
+#     if (mon == "Dec" and day in range(21,30)) or (mon == "Jan" and day in range(1,31)) or (mon == "Feb" and day in range(1,28)) or (mon == "Mar" and day in (1,19)):
+#         season = "Winter"
+#     elif (mon == "Mar" and day in range(20,31)) or (mon == "Apr" and day in range(1,30)) or (mon == "May" and day in range(1,31)) or (mon == "Jun" and day in range(1,20)):
+#         season = "Spring"
+#     elif (mon == "Jun" and day in range(21,30)) or (mon == "Jul" and day in range(1,31)) or (mon == "Aug" and day in range(1,30)) or (mon == "Sep" and day in range(1,21)):
+#         season = "Summer"
+#     elif (mon == "Sep" and day in range(22,31)) or (mon == "Oct" and day in range(1,31)) or (mon == "Nov" and day in range(1,30)) or (mon == "Dec" and day in range(1,20)):
+#         season = "Fall"
+#     else:
+#         print("Error: Cannot determine season.")
 
     
-    print(f"{mon} {day} is in {season}.")
+#     print(f"{mon} {day} is in {season}.")
+
+# # Call the function
+# determine_season()
+
+
+
+# Exercise 7: Number Guessing Game
+#
+# Write a Python function named `guess_number` that allows a user to guess a predetermined number within a range.
+#
+# Requirements:
+# - Set a fixed number as the target for guessing (e.g., 42).
+# - Prompt the user to guess a number within a range (e.g., 1 to 100).
+# - Allow the user to guess up to five times.
+# - After each guess, use conditional statements with AND, OR, and NOT to give the user hints like:
+#   - "Guess is too low" or "Guess is too high."
+#   - "Last chance!" when they are on their fifth guess.
+# - Print "Congratulations, you guessed correctly!" if they guess the number.
+# - Print "Sorry, you failed to guess the number in five attempts." if they do not succeed.
+#
+# Hints:
+# - Use a for loop with a range to limit guesses to five.
+# - Use logical AND, OR, and NOT to check conditions and provide appropriate feedback.
+
+def guess_number():
+    answer = 64
+    attempts = 0
+
+    for count in range(attempts, 6, 1):
+        guess = input("Guess a number between 1 and 100: ")
+        guess = int(guess)
+        attempts = attempts + 1
+        
+        if guess > answer:
+            print("Guess is too high...")
+        elif guess < answer:
+            print("Guess is too low...")
+        elif guess is not answer:
+            print("Wrong guess! Try again!")
+        elif guess is answer:
+            print("Congratulations, you guessed correctly!")
+        
+        if attempts == 4:
+            print("Last chance! Guess again: ")
+        elif attempts == 5:
+            print("You're out of attempts!")
+            break
+
+
+
 
 # Call the function
-determine_season()
+guess_number()
 
